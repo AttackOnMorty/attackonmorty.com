@@ -73,7 +73,7 @@ function factorial(n) {
 ```
 
 > For Control, in addition to the way the program is executed (top-down or bottom-up). It also includes parallel or serial, synchronous or asynchronous, as well as scheduling different execution paths or modules, and the storage relationship between data.
-> ![algorithm=logic+control](/static/images/the-essence-of-programming/algorithm=logic+control.png)
+> ![algorithm=logic+control](./images/algorithm=logic+control.png)
 
 #### How to Write Good Programs
 

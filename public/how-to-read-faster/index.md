@@ -28,9 +28,9 @@ spoiler: 'Physiological limits cannot be changed, but they can be approached thr
 
 - 100-200 bits of information are received in 1 second, about 12-25 Chinese characters.
 
-Physiological limits cannot be changed, but they can be approached through training.
-
 ## How to train to break through bottlenecks
+
+Physiological limits cannot be changed, but they can be approached through training.
 
 ### Adjust book position
 

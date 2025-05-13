@@ -35,13 +35,10 @@ spoiler: Improving the design of existing code.
 ### When to Refactor
 
 - Opportunistic refactoring
-
   - Preparatory refactoring: Making it easier to add a feature
   - Comprehension refactoring: Making the code easier to understand
   - Litter-Pickup refactoring
-
 - Planned refactoring
-
   - Long-Term refactoring
   - Refactoring during code reviews
 
