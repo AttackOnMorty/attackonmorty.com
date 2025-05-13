@@ -10,6 +10,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@vercel/analytics": "^1.5.0",
     "colorjs.io": "^0.4.5",
     "feed": "^4.2.2",

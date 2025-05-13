@@ -1,29 +1,32 @@
-import { Fragment } from "react";
-import { readdir, readFile } from "fs/promises";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote-client/rsc";
-import Link from "../Link";
-import { sans } from "../fonts";
-import remarkSmartpants from "remark-smartypants";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { remarkMdxEvalCodeBlock } from "./mdx.js";
-import overnight from "overnight/themes/Overnight-Slumber.json";
-import "./markdown.css";
-import remarkGfm from "remark-gfm";
+import { readdir, readFile } from 'fs/promises';
+import matter from 'gray-matter';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import overnight from 'overnight/themes/Overnight-Slumber.json';
+import { Fragment } from 'react';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import remarkSmartpants from 'remark-smartypants';
 
-overnight.colors["editor.background"] = "var(--code-bg)";
+import Link from '../Link';
+import Comments from '../components/comments';
+import { sans } from '../fonts';
+import { remarkMdxEvalCodeBlock } from './mdx.js';
+
+import './markdown.css';
+
+overnight.colors['editor.background'] = 'var(--code-bg)';
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
-  const filename = "./public/" + slug + "/index.md";
-  const file = await readFile(filename, "utf8");
+  const filename = './public/' + slug + '/index.md';
+  const file = await readFile(filename, 'utf8');
   let postComponents = {};
   try {
-    postComponents = await import("../../public/" + slug + "/components.js");
+    postComponents = await import('../../public/' + slug + '/components.js');
   } catch (e) {
-    if (!e || e.code !== "MODULE_NOT_FOUND") {
+    if (!e || e.code !== 'MODULE_NOT_FOUND') {
       throw e;
     }
   }
@@ -34,7 +37,7 @@ export default async function PostPage({ params }) {
   //   `https://overreacted.io/${slug}/`,
   // )}`;
   const editUrl = `https://github.com/AttackOnMorty/attack-on-morty/edit/main/public/${encodeURIComponent(
-    slug,
+    slug
   )}/index.md`;
   return (
     <>
@@ -42,16 +45,16 @@ export default async function PostPage({ params }) {
         <h1
           className={[
             sans.className,
-            "text-[40px] font-black leading-[44px] text-[--title]",
-          ].join(" ")}
+            'text-[40px] font-black leading-[44px] text-[--title]',
+          ].join(' ')}
         >
           {data.title}
         </h1>
         <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-          {new Date(data.date).toLocaleDateString("en", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
+          {new Date(data.date).toLocaleDateString('en', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
           })}
         </p>
         <div className="markdown">
@@ -111,10 +114,10 @@ export default async function PostPage({ params }) {
                     [
                       rehypeAutolinkHeadings,
                       {
-                        behavior: "wrap",
+                        behavior: 'wrap',
                         properties: {
-                          className: "linked-heading",
-                          target: "_self",
+                          className: 'linked-heading',
+                          target: '_self',
                         },
                       },
                     ],
@@ -144,6 +147,7 @@ export default async function PostPage({ params }) {
             )}
             {/* &nbsp;&nbsp;&middot;&nbsp;&nbsp; */}
             <Link href={editUrl}>Edit on GitHub</Link>
+            <Comments />
           </p>
         </div>
       </article>
@@ -152,7 +156,7 @@ export default async function PostPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const entries = await readdir('./public/', { withFileTypes: true });
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
@@ -161,10 +165,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const file = await readFile("./public/" + slug + "/index.md", "utf8");
+  const file = await readFile('./public/' + slug + '/index.md', 'utf8');
   let { data } = matter(file);
   return {
-    title: data.title + " — AttackOnMorty",
+    title: data.title,
     description: data.spoiler,
   };
 }
