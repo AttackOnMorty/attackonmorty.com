@@ -30,10 +30,10 @@ export default async function PostPage({ params }) {
   let Wrapper = postComponents.Wrapper ?? Fragment;
   const { content, data } = matter(file);
   const isDraft = new Date(data.date).getFullYear() > new Date().getFullYear();
-  const discussUrl = `https://bsky.app/search?q=${encodeURIComponent(
-    `https://overreacted.io/${slug}/`,
-  )}`;
-  const editUrl = `https://github.com/gaearon/overreacted.io/edit/main/public/${encodeURIComponent(
+  // const discussUrl = `https://bsky.app/search?q=${encodeURIComponent(
+  //   `https://overreacted.io/${slug}/`,
+  // )}`;
+  const editUrl = `https://github.com/AttackOnMorty/attack-on-morty/edit/main/public/${encodeURIComponent(
     slug,
   )}/index.md`;
   return (
@@ -56,7 +56,7 @@ export default async function PostPage({ params }) {
         </p>
         <div className="markdown">
           <div className="mb-8 relative md:-left-6 flex flex-wrap items-baseline">
-            {!isDraft && (
+            {/* {!isDraft && (
               <a
                 href="https://ko-fi.com/gaearon"
                 target="_blank"
@@ -65,7 +65,7 @@ export default async function PostPage({ params }) {
                 <span className="tip-bg" />
                 Pay what you like
               </a>
-            )}
+            )} */}
             {data.youtube && (
               <a
                 className="leading-tight mt-4"
@@ -123,7 +123,7 @@ export default async function PostPage({ params }) {
               }}
             />
           </Wrapper>
-          {!isDraft && (
+          {/* {!isDraft && (
             <a
               href="https://ko-fi.com/gaearon"
               target="_blank"
@@ -132,17 +132,17 @@ export default async function PostPage({ params }) {
               <span className="tip-bg" />
               Pay what you like
             </a>
-          )}
+          )} */}
           <hr />
           <p>
-            <Link href={discussUrl}>Discuss on Bluesky</Link>
+            {/* <Link href={discussUrl}>Discuss on Bluesky</Link> */}
             {data.youtube && (
               <>
                 &nbsp;&nbsp;&middot;&nbsp;&nbsp;
                 <Link href={data.youtube}>Watch on YouTube</Link>
               </>
             )}
-            &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            {/* &nbsp;&nbsp;&middot;&nbsp;&nbsp; */}
             <Link href={editUrl}>Edit on GitHub</Link>
           </p>
         </div>
@@ -164,7 +164,7 @@ export async function generateMetadata({ params }) {
   const file = await readFile("./public/" + slug + "/index.md", "utf8");
   let { data } = matter(file);
   return {
-    title: data.title + " — overreacted",
+    title: data.title + " — AttackOnMorty",
     description: data.spoiler,
   };
 }

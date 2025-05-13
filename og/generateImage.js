@@ -40,7 +40,7 @@ export async function generateHomeImage() {
             color: "transparent",
           }}
         >
-          overreacted
+          AttackOnMorty
         </span>
         <span
           style={{
@@ -99,7 +99,7 @@ export async function generatePostImage({ title }) {
             fontSize: 60,
           }}
         >
-          overreacted
+          AttackOnMorty
         </span>
         <span
           style={{

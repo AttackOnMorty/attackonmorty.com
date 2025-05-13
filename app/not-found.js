@@ -13,7 +13,7 @@ export default function NotFound() {
       >
         Not found
       </h1>
-      <div className="markdown mt-10">
+      {/* <div className="markdown mt-10">
         <p>This page doesn't exist (yet?)</p>
         <p>
           I recently rewrote the site so maybe something broke. Please{" "}
@@ -29,7 +29,7 @@ export default function NotFound() {
           </Link>
         </p>
         <p>Hope you'll find what you're looking for.</p>
-      </div>
+      </div> */}
     </article>
   );
 }
