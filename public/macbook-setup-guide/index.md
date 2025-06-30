@@ -51,21 +51,30 @@ You don't need the dock. Hide it to get more screen space:
 
 ## Productivity Tools
 
-- [Raycast](https://raycast.com/) - Launcher
 - [1Password 💰](https://1password.com/) - Password manager
 - [Arc](https://arc.net/) - Browser
 - [Bear](https://bear.app/) - Notes
-- [Reeder](https://reederapp.com/) - RSS reader
-- [Snipaste](https://www.snipaste.com/) - Screenshot tool
 - [Grammarly](https://www.grammarly.com/) - Writing assistant
-- [Xmind 💰](https://xmind.app/) - Mind mapping
+- [Raycast](https://raycast.com/) - Launcher
+  - [ChatGPT](https://www.raycast.com/abielzulio/chatgpt)
+  - [Coffee](https://www.raycast.com/mooxl/coffee) - Keep Mac awake
+- [Reeder](https://reederapp.com/) - RSS reader
 - [Setapp 💰](https://setapp.com/) - App bundle
+  - [AlDente Pro](https://apphousekitchen.com/aldente-overview/) - Battery manager (Free version: [AlDente](https://github.com/AppHouseKitchen/AlDente-Charge-Limiter))
+  - [Bartender](https://www.macbartender.com/) - Menu bar manager
+  - [CleanMyMac](https://cleanmymac.com/) - System cleaner
+  - [iStat Menus](https://bjango.com/mac/istatmenus/) - System monitor (Free alternative: [Stats](https://github.com/exelban/stats))
+  - [Mosaic](https://www.lightpillar.com/mosaic) - Window manager
+  - [Paste](https://pasteapp.me/) - Pasteboard manager
+  - [Timing](https://timingapp.com/) - Time tracking
+- [Snipaste](https://www.snipaste.com/) - Screenshot tool
+- [Xmind 💰](https://xmind.app/) - Mind mapping
 
 ## Developer Tools
 
 - [Cursor](https://www.cursor.com/) - AI code editor
 - [Rider 💰](https://www.jetbrains.com/rider/) - .NET IDE
-- [Wrap](https://www.warp.dev/) - Terminal
+- [Warp](https://www.warp.dev/) - Terminal
 - [Oh My Zsh](https://ohmyz.sh/) - Zsh manager
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - Zsh theme
 - [Fira Code](https://github.com/tonsky/FiraCode) - Coding font
