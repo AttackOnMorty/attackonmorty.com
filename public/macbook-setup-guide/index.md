@@ -73,6 +73,11 @@ You don't need the dock. Hide it to get more screen space:
 ## Developer Tools
 
 - [Cursor](https://www.cursor.com/) - AI code editor
+  - [Babel JavaScript](https://open-vsx.org/extension/mgmcdermott/vscode-language-babel) - JavaScript syntax highlighting
+  - [Code Spell Checker](https://open-vsx.org/extension/streetsidesoftware/code-spell-checker) - Spell checker
+  - [Import Cost](https://open-vsx.org/extension/wix/vscode-import-cost) - Import size
+  - [Material Icon Theme](https://open-vsx.org/extension/PKief/material-icon-theme) - Icon set
+  - [TODO Highlight](https://open-vsx.org/extension/wayou/vscode-todo-highlight) - TODO highlighting
 - [Rider 💰](https://www.jetbrains.com/rider/) - .NET IDE
   - [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons) - Icon set
   - [Key Promoter X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x) - Keyboard shortcuts reminder
