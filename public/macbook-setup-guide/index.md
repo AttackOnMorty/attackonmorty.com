@@ -74,6 +74,9 @@ You don't need the dock. Hide it to get more screen space:
 
 - [Cursor](https://www.cursor.com/) - AI code editor
 - [Rider 💰](https://www.jetbrains.com/rider/) - .NET IDE
+  - [Atom Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons) - Icon set
+  - [Key Promoter X](https://plugins.jetbrains.com/plugin/9792-key-promoter-x) - Keyboard shortcuts reminder
+  - [Nyan Progress Bar](https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar) - Never get bored of waiting
 - [Warp](https://www.warp.dev/) - Terminal
 - [Oh My Zsh](https://ohmyz.sh/) - Zsh manager
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - Zsh theme
