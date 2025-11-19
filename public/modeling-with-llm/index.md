@@ -1,4 +1,5 @@
 ---
+archived: true
 title: Modeling with LLM
 date: '2024-05-02'
 spoiler: 'For LLM, the focus is not on doing it, but on verifying that what he did is right.'

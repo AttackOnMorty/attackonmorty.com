@@ -1,4 +1,5 @@
 ---
+archived: true
 title: TDD is Back
 date: '2025-06-17'
 spoiler: 'TDD + Pair Programming + AI'
