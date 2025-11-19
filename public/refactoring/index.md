@@ -30,7 +30,7 @@ spoiler: Improving the design of existing code.
 
 ## When
 
-> The Rule of Three: Three strikes, then you refactor
+The Rule of Three: Three strikes, then you refactor.
 
 ### When to Refactor
 
@@ -49,7 +49,7 @@ spoiler: Improving the design of existing code.
 
 ## How
 
-> The Two Hats: Switch between adding functionality and refactoring
+The Two Hats: Switch between adding functionality and refactoring.
 
 1. Find [Bad Smells in Code](https://refactoring.guru/refactoring/smells)
 2. Apply [Refactoring Techniques](https://refactoring.guru/refactoring/techniques)
