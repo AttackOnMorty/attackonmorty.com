@@ -157,24 +157,28 @@ spoiler: 'Teach Yourself Programming in Ten Years'
 #### Personal
 
 - 🔗 [Coding Horror](https://blog.codinghorror.com/)
+- 🔗 [Dan Abramov](https://overreacted.io)
 - 🔗 [Joel on Software](https://www.joelonsoftware.com/)
-- 🔗 [The Clean Code Blog](https://blog.cleancoder.com/)
-- 🔗 [Martin Fowler](https://martinfowler.com/)
+- 🔗 [Maggie Appleton](https://maggieappleton.com)
+- 🔗 [Martin Fowler](https://martinfowler.com)
 - 🔗 [Paul Graham](http://www.paulgraham.com/articles.html)
-- 🔗 [Steve Yegge](https://sites.google.com/site/steveyegge2/blog-rants), his most famous article is [Stevey's Google Platforms Rant](https://gist.github.com/chitchcock/1281611)
 - 🔗 [Peter Krumins](https://catonmat.net/)
 - 🔗 [Programming is Terrible](https://programmingisterrible.com/)
+- 🔗 [Steve Yegge](https://sites.google.com/site/steveyegge2/blog-rants), his most famous article is [Stevey's Google Platforms Rant](https://gist.github.com/chitchcock/1281611)
+- 🔗 [The Clean Code Blog](https://blog.cleancoder.com/)
 
 #### Company
 
-- 🔗 [Microsoft Developer Blogs](https://devblogs.microsoft.com/)
-- 🔗 [GitHub Engineering](https://github.blog/engineering/)
-- 🔗 [Google Developers Blog](https://developers.googleblog.com/)
-- 🔗 [Facebook Engineering](https://engineering.fb.com/)
-- 🔗 [Twitter Engineering](https://blog.twitter.com/engineering)
-- 🔗 [Netflix Tech Blog](https://netflixtechblog.com/)
-- 🔗 [Airbnb Engineering & Data Science](https://medium.com/airbnb-engineering)
-- 🔗 [LinkedIn Engineering](https://engineering.linkedin.com/blog)
+- 🔗 [Airbnb](https://medium.com/airbnb-engineering)
+- 🔗 [Amazon](https://www.amazon.science/blog)
+- 🔗 [GitHub](https://github.blog/engineering)
+- 🔗 [Google](https://developers.googleblog.com)
+- 🔗 [LinkedIn](https://engineering.linkedin.com/blog)
+- 🔗 [Meta](https://engineering.fb.com)
+- 🔗 [Microsoft](https://devblogs.microsoft.com)
+- 🔗 [Netflix](https://netflixtechblog.com)
+- 🔗 [Open AI](https://developers.openai.com/blog)
+- 🔗 [V8](https://v8.dev/blog)
 
 ### Books
 
