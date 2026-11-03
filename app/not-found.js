@@ -1,35 +1,26 @@
-import { sans } from "./fonts";
-import Link from "./Link";
-import "./[slug]/markdown.css";
+import { Paper } from '@/components/ui/paper';
+import { Lettering } from '@/components/ui/lettering';
+import { Mascot } from '@/components/ui/mascot';
+import { Button } from '@/components/ui/button';
+import NextLink from 'next/link';
 
 export default function NotFound() {
   return (
-    <article className="markdown">
-      <h1
-        className={[
-          sans.className,
-          "text-[40px] font-black leading-[44px] text-[--title]",
-        ].join(" ")}
-      >
+    <Paper
+      as="section"
+      tape="both"
+      seed="not-found"
+      className="mx-3 flex max-w-2xl flex-col items-center gap-4 px-6 py-12 text-center sm:mx-auto"
+    >
+      <Mascot pose="shrug" size={160} className="h-[160px] w-auto" />
+      <Lettering as="h1" size="md" tone="marker" seed="not-found-title">
         Not found
-      </h1>
-      {/* <div className="markdown mt-10">
-        <p>This page doesn't exist (yet?)</p>
-        <p>
-          I recently rewrote the site so maybe something broke. Please{" "}
-          <Link href="https://github.com/gaearon/overreacted.io/issues/796">
-            complain here.
-          </Link>
-        </p>
-        <p>
-          If you're looking for translated posts, they're not on the site
-          anymore but you can find{" "}
-          <Link href="https://github.com/gaearon/overreacted.io/tree/archive/src/pages">
-            an archive of them here.
-          </Link>
-        </p>
-        <p>Hope you'll find what you're looking for.</p>
-      </div> */}
-    </article>
+      </Lettering>
+      <p className="text-lg text-ink-soft">This page doesn&apos;t exist (yet?).</p>
+      {/* next/link, not ./Link: its inline transition would override Button's press animation. */}
+      <Button asChild>
+        <NextLink href="/">Back to all posts</NextLink>
+      </Button>
+    </Paper>
   );
 }

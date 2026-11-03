@@ -71,3 +71,11 @@ export async function generateFeed() {
 
   return feed;
 }
+
+export function formatDate(date) {
+  return new Date(date).toLocaleDateString('en', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}

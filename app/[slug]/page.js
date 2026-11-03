@@ -1,22 +1,41 @@
 import { readdir, readFile } from 'fs/promises';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
-import overnight from 'overnight/themes/Overnight-Slumber.json';
 import { Fragment } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkSmartpants from 'remark-smartypants';
 
+import NextLink from 'next/link';
+
+import { PageHeader, PageTitle, PageContent, PageFooter } from '@/components/ui/page';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Icon } from '@/components/ui/icon';
+import { Prose } from '@/components/ui/typography';
+import { CodeBlock } from '@/components/ui/code-block';
+import { Button } from '@/components/ui/button';
+import { Signature } from '@/components/ui/signature';
+import { Tape } from '@/components/ui/tape';
+
 import Link from '../Link';
 import Comments from '../components/comments';
-import { sans } from '../fonts';
+import ArchivedStamp from '../ArchivedStamp';
+import { formatDate } from '../posts';
 import { remarkMdxEvalCodeBlock } from './mdx.js';
 
-import './markdown.css';
-
-overnight.colors['editor.background'] = 'var(--code-bg)';
+// Fenced code blocks arrive as <pre><code className="language-x">…</code></pre>.
+function Pre({ children }) {
+  const { className = '', children: code = '' } = children?.props ?? {};
+  const language = className.replace('language-', '') || undefined;
+  return (
+    <CodeBlock
+      className="ll-not-prose my-8"
+      code={String(code).replace(/\n$/, '')}
+      language={language}
+    />
+  );
+}
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
@@ -32,66 +51,57 @@ export default async function PostPage({ params }) {
   }
   let Wrapper = postComponents.Wrapper ?? Fragment;
   const { content, data } = matter(file);
-  const isDraft = new Date(data.date).getFullYear() > new Date().getFullYear();
-  // const discussUrl = `https://bsky.app/search?q=${encodeURIComponent(
-  //   `https://overreacted.io/${slug}/`,
-  // )}`;
-  const editUrl = `https://github.com/AttackOnMorty/attack-on-morty/edit/main/public/${encodeURIComponent(
-    slug
-  )}/index.md`;
   return (
-    <>
-      <article>
-        <h1
-          className={[
-            sans.className,
-            'text-[40px] font-black leading-[44px] text-[--title]',
-          ].join(' ')}
-        >
-          {data.title}
-        </h1>
-        <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-          {new Date(data.date).toLocaleDateString('en', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}
-        </p>
-        <div className="markdown">
-          <div className="mb-8 relative md:-left-6 flex flex-wrap items-baseline">
-            {/* {!isDraft && (
-              <a
-                href="https://ko-fi.com/gaearon"
-                target="_blank"
-                className="mt-10 tip tip-sm mr-4"
-              >
-                <span className="tip-bg" />
-                Pay what you like
-              </a>
-            )} */}
-            {data.youtube && (
-              <a
-                className="leading-tight mt-4"
-                href={data.youtube}
-                target="_blank"
-              >
-                <span className="hidden min-[400px]:inline">Watch on </span>
-                YouTube
-              </a>
-            )}
-          </div>
-
+    <article className="mx-auto flex w-full max-w-3xl flex-col gap-8 px-6 py-8 sm:px-10 sm:py-10">
+      <NextLink
+        href="/"
+        className="-mx-1 flex w-fit items-center gap-2.5 px-1 font-bold hover:ll-swipe focus-visible:ll-swipe"
+      >
+        <Avatar size="sm" seed="luke">
+          <AvatarImage src="/avi.jpg" alt="" />
+          <AvatarFallback name="Luke Mao" />
+        </Avatar>
+        AttackOnMorty
+      </NextLink>
+      <PageHeader className="relative">
+        {data.archived && (
+          <ArchivedStamp
+            seed={slug}
+            className="absolute -top-14 end-0 max-sm:-top-12 max-sm:origin-top-right max-sm:scale-75"
+          />
+        )}
+        <time dateTime={data.date} className="font-type text-sm tracking-wide text-pencil-text">
+          {formatDate(data.date)}
+        </time>
+        <PageTitle seed={slug}>{data.title}</PageTitle>
+      </PageHeader>
+      <PageContent>
+        <Prose className="post">
           <Wrapper>
             <MDXRemote
               source={content}
               components={{
                 a: Link,
+                pre: Pre,
                 img: ({ src, ...rest }) => {
                   if (src && !/^https?:\/\//.test(src)) {
                     // https://github.com/gaearon/overreacted.io/issues/827
                     src = `/${slug}/${src}`;
                   }
-                  return <img src={src} {...rest} />;
+                  // Spans, not divs: markdown puts images inside <p>.
+                  return (
+                    <span className="relative my-8 block">
+                      <Tape
+                        seed={src}
+                        className="absolute -top-3 left-1/2 -translate-x-1/2"
+                      />
+                      <img
+                        src={src}
+                        {...rest}
+                        className="mx-auto bg-photo p-3 shadow-(--ll-shadow-slip)"
+                      />
+                    </span>
+                  );
                 },
                 ...postComponents,
               }}
@@ -104,12 +114,6 @@ export default async function PostPage({ params }) {
                     [remarkMdxEvalCodeBlock, filename],
                   ],
                   rehypePlugins: [
-                    [
-                      rehypePrettyCode,
-                      {
-                        theme: overnight,
-                      },
-                    ],
                     [rehypeSlug],
                     [
                       rehypeAutolinkHeadings,
@@ -126,32 +130,31 @@ export default async function PostPage({ params }) {
               }}
             />
           </Wrapper>
-          {/* {!isDraft && (
-            <a
-              href="https://ko-fi.com/gaearon"
-              target="_blank"
-              className="tip mb-8 relative md:-left-8"
-            >
-              <span className="tip-bg" />
-              Pay what you like
-            </a>
-          )} */}
-          <hr />
-          <p>
-            {/* <Link href={discussUrl}>Discuss on Bluesky</Link> */}
-            {data.youtube && (
-              <>
-                &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-                <Link href={data.youtube}>Watch on YouTube</Link>
-              </>
-            )}
-            {/* &nbsp;&nbsp;&middot;&nbsp;&nbsp; */}
-            <Link href={editUrl}>Edit on GitHub</Link>
-            <Comments />
-          </p>
+        </Prose>
+      </PageContent>
+      <PageFooter className="flex-wrap border-t-0 pt-6">
+        <Signature size="sm" seed="luke-signature">
+          Luke Mao
+        </Signature>
+        {/* Plain <a> / next/link: Link.js sets an inline transition that would override Button's press animation. */}
+        <div className="flex flex-wrap gap-2">
+          {data.youtube && (
+            <Button asChild variant="outline" size="sm">
+              <a href={data.youtube} target="_blank" rel="noreferrer">
+                Watch on YouTube
+              </a>
+            </Button>
+          )}
+          <Button asChild variant="outline" size="sm">
+            <NextLink href="/">
+              <Icon name="arrow-left" className="rtl:-scale-x-100" />
+              All posts
+            </NextLink>
+          </Button>
         </div>
-      </article>
-    </>
+      </PageFooter>
+      <Comments />
+    </article>
   );
 }
 

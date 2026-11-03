@@ -2,6 +2,10 @@
 
 import Giscus from '@giscus/react';
 
+// giscus.app loads the theme with CORS from its own origin, so it must be the
+// public URL (vercel.json adds the header). Browsers block it from localhost.
+const theme = 'https://www.attackonmorty.com/giscus-theme.css';
+
 export default function Comments() {
   return (
     <Giscus
@@ -14,7 +18,7 @@ export default function Comments() {
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="bottom"
-      theme="preferred_color_scheme"
+      theme={theme}
       lang="en"
       crossorigin="anonymous"
     />

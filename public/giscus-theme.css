@@ -1,0 +1,77 @@
+/* Giscus theme matching the Looseleaf paper look. Loaded by giscus.app inside
+   its iframe, so it can't see the site's CSS variables: colours are copied
+   from the Looseleaf tokens in app/global.css. The font comes from the
+   Looseleaf site because the iframe needs it served with CORS. */
+@import url('https://giscus.app/themes/light.css');
+
+@font-face {
+  font-family: 'Kevin Sans';
+  src: url('https://kevintngo.github.io/looseleaf/fonts/KevinSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kevin Sans';
+  src: url('https://kevintngo.github.io/looseleaf/fonts/KevinSans-Bold.woff2') format('woff2');
+  font-weight: 600 700;
+  font-display: swap;
+}
+
+main {
+  --color-fg-default: #2a2420;
+  --color-fg-muted: #5a554e;
+  --color-fg-subtle: #6b6660;
+  --color-canvas-default: #fbf8f1;
+  --color-canvas-overlay: #fbf8f1;
+  --color-canvas-inset: #f8f5ee;
+  --color-canvas-subtle: #f8f5ee;
+  --color-border-default: #8e887f;
+  --color-border-muted: #ece6da;
+  --color-neutral-muted: #ece6da;
+  --color-accent-fg: #2c4f9e;
+  --color-accent-emphasis: #2c4f9e;
+  --color-accent-muted: #2c4f9e55;
+  --color-accent-subtle: #f8dc4c40;
+  --color-segmented-control-bg: #ece6da;
+  --color-segmented-control-button-bg: #fbf8f1;
+  --color-btn-text: #2a2420;
+  --color-btn-bg: #fbf8f1;
+  --color-btn-border: #8e887f;
+  --color-btn-shadow: none;
+  --color-btn-inset-shadow: none;
+  --color-btn-hover-bg: #f8dc4c66;
+  --color-btn-hover-border: #8e887f;
+  --color-btn-active-bg: #f8dc4c99;
+  --color-btn-selected-bg: #f8dc4c66;
+  --color-btn-primary-text: #2a2420;
+  --color-btn-primary-bg: #df6b3c;
+  --color-btn-primary-border: #2a2420;
+  --color-btn-primary-shadow: none;
+  --color-btn-primary-inset-shadow: none;
+  --color-btn-primary-hover-bg: #e57d52;
+  --color-btn-primary-hover-border: #2a2420;
+  --color-btn-primary-selected-bg: #c95a2e;
+  --color-btn-primary-disabled-text: #2a242099;
+  --color-btn-primary-disabled-bg: #efb79f;
+  --color-btn-primary-disabled-border: #8e887f;
+  --color-social-reaction-bg-hover: #f8dc4c66;
+  --color-social-reaction-bg-reacted-hover: #f8dc4c99;
+
+  font-family: 'Kevin Sans', 'Bradley Hand', cursive;
+  font-size: 15px;
+}
+
+/* Hand-cut corners instead of GitHub's even rounding. */
+main .rounded-md,
+main .btn,
+main .gsc-comment-box,
+main .gsc-comment > div,
+main .gsc-reactions-button,
+main .gsc-direct-reaction-button {
+  border-radius: 2px 6px 3px 5px / 5px 2px 6px 3px;
+}
+
+main code,
+main pre {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
